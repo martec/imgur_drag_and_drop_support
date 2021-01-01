@@ -25,6 +25,8 @@
 				}
 
 				editor.on( 'fileUploadRequest', function( evt ) {
+					var notification = new CKEDITOR.plugins.notification( evt.editor, { message: RinEditor['Uploading'], type: 'success' } );
+					notification.show();
 					var xhr = evt.data.fileLoader.xhr;
 					xhr.setRequestHeader( 'Authorization', "Client-ID " + ClientId );
 					xhr.send( evt.data.fileLoader.file );
